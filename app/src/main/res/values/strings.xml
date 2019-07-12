@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ControlStock</string>
+    <string name="buscar_productos">Buscar productos</string>
+    <string name="todo">TODO</string>
+    <string name="busqueda_de_productos_por_qr">busqueda de productos por qr</string>
+    <string name="cargar_producto">cargar producto</string>
 </resources>
