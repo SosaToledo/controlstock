@@ -12,23 +12,26 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText2" android:layout_weight="1" android:hint="@string/buscar_productos"
+                android:id="@+id/et_productToFind" android:layout_weight="1" android:hint="@string/buscar_productos"
                 android:importantForAutofill="no"/>
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_menu_search"
-                android:id="@+id/imageButton2" android:layout_weight="1" android:contentDescription="@string/buscar_productos"/>
+                android:id="@+id/ibtn_searchByText" android:layout_weight="1"
+                android:contentDescription="@string/buscar_productos" android:onClick="searchProductByText"/>
     </LinearLayout>
     <ImageButton
             android:layout_width="409dp"
             android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_input_add"
-            android:id="@+id/imageButton4" android:layout_alignParentBottom="true" android:layout_marginBottom="1dp"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="0dp" android:contentDescription="@string/cargar_producto"/>
+            android:id="@+id/ibtn_addProduct" android:layout_alignParentBottom="true" android:layout_marginBottom="1dp"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="0dp"
+            android:contentDescription="@string/cargar_producto" android:onClick="addProductByText"/>
     <Button
-            android:text="@string/busqueda_de_productos_por_qr"
+            android:text="@string/busqueda_de_productos_por_codigo"
             android:layout_width="406dp"
-            android:layout_height="wrap_content" android:id="@+id/button" android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content" android:id="@+id/btn_searchByQr" android:layout_alignParentEnd="true"
             android:layout_marginEnd="1dp"
             android:layout_marginTop="56dp" android:layout_alignTop="@id/LLbusquedaprod"
-            android:contentDescription="@string/busqueda_de_productos_por_qr"/>
+            android:contentDescription="@string/busqueda_de_productos_por_codigo"
+            android:onClick="searchByCode"/>
 </RelativeLayout>
