@@ -17,6 +17,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:contentDescription="@string/botondeuso"
+            android:onClick="cancel"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     <ImageButton
@@ -26,6 +27,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:contentDescription="@string/botondeuso"
+            android:onClick="saveProduct"
             app:srcCompat="@android:drawable/ic_menu_save" />
 
     <EditText
@@ -49,19 +51,19 @@
             android:inputType="textPersonName" />
 
     <EditText
-            android:id="@+id/et_producto"
+            android:id="@+id/et_marca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_categoria"
             android:ems="10"
-            android:hint="Producto"
+            android:hint="Marca"
             android:inputType="textPersonName" />
 
     <EditText
             android:id="@+id/et_detalles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_producto"
+            android:layout_below="@id/et_marca"
             android:ems="10"
             android:hint="Detalles"
             android:inputType="textPersonName" />

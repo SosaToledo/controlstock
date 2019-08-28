@@ -42,7 +42,7 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
             if (cursor.moveToFirst()){
                 do {
                     val product = product()
-                    product.id = cursor.getColumnIndex(COL_ID)
+                    product.id = cursor.getLong(cursor.getColumnIndex(COL_ID))
                     product.categoria = cursor.getString(cursor.getColumnIndex(COL_CATEGORIA))
                     product.marca = cursor.getString(cursor.getColumnIndex(COL_MARCA))
                     product.detalles = cursor.getString(cursor.getColumnIndex(COL_DETALLES))
@@ -62,13 +62,13 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COL_ID, product.id)
-        values.put(COL_ID, product.categoria)
-        values.put(COL_ID, product.marca)
-        values.put(COL_ID, product.detalles)
-        values.put(COL_ID, product.costo)
-        values.put(COL_ID, product.precio)
-        values.put(COL_ID, product.medidaPeso)
-        values.put(COL_ID, product.cantidad)
+        values.put(COL_CATEGORIA, product.categoria)
+        values.put(COL_MARCA, product.marca)
+        values.put(COL_DETALLES, product.detalles)
+        values.put(COL_COSTO, product.costo)
+        values.put(COL_PRECIO, product.precio)
+        values.put(COL_MEDIDAPESO, product.medidaPeso)
+        values.put(COL_CANTIDAD, product.cantidad)
 
         db.insert(TABLE_NAME, null, values)
         db.close()
@@ -103,7 +103,6 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
         val db = this.writableDatabase
         val cursor = db.rawQuery(searchQuery, null)
         if (cursor.moveToFirst()){
-            producto.id = cursor.getColumnIndex(COL_ID)
             producto.categoria = cursor.getString(cursor.getColumnIndex(COL_CATEGORIA))
             producto.marca = cursor.getString(cursor.getColumnIndex(COL_MARCA))
             producto.detalles = cursor.getString(cursor.getColumnIndex(COL_DETALLES))

@@ -1,7 +1,7 @@
 package ar.com.thinco.controlstock.model
 
 class product {
-    var id:Int=0
+    var id:Long=0
     var categoria:String=""
     var marca:String=""
     var detalles:String=""
@@ -12,7 +12,7 @@ class product {
 
     constructor(){}
     constructor(
-        id: Int,
+        id: Long,
         categoria: String,
         marca: String,
         detalles: String,
