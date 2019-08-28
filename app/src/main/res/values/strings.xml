@@ -4,4 +4,6 @@
     <string name="todo">TODO</string>
     <string name="busqueda_de_productos_por_codigo">busqueda/carga de productos por codigo</string>
     <string name="cargar_producto">cargar producto</string>
+    <string name="botondeuso">botondeuso</string>
+    <string name="identificador">identificador</string>
 </resources>
