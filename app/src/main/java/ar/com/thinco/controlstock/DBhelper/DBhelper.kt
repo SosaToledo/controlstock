@@ -74,19 +74,19 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
         db.close()
     }
 
-    fun updateProduct(product: product):Int{
+    fun updateProduct(product: product){
         val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(COL_ID, product.id)
-        values.put(COL_ID, product.categoria)
-        values.put(COL_ID, product.marca)
-        values.put(COL_ID, product.detalles)
-        values.put(COL_ID, product.costo)
-        values.put(COL_ID, product.precio)
-        values.put(COL_ID, product.medidaPeso)
-        values.put(COL_ID, product.cantidad)
+        val updatetable = "UPDATE $TABLE_NAME " +
+                "SET $COL_CATEGORIA = '${product.categoria}', " +
+                "$COL_MARCA = '${product.marca}', " +
+                "$COL_DETALLES = '${product.detalles}', " +
+                "$COL_COSTO = ${product.costo}, " +
+                "$COL_PRECIO = ${product.precio}, " +
+                "$COL_MEDIDAPESO = ${product.medidaPeso}, " +
+                "$COL_CANTIDAD = ${product.cantidad} " +
+                "WHERE $COL_ID = ${product.id};"
 
-        return db.update(TABLE_NAME, values, "$COL_ID=?", arrayOf(product.id.toString()) )
+        db.rawQuery(updatetable, null)
         db.close()
     }
 
@@ -97,7 +97,7 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
         db.close()
     }
 
-    public fun searchProduct(id: Long):product{
+    fun searchProduct(id: Long):product{
         val producto = product()
         val searchQuery = "SELECT * FROM $TABLE_NAME WHERE id = $id"
         val db = this.writableDatabase
@@ -113,6 +113,30 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
         }
 
         return producto
+    }
+
+    fun searchProduct(cadena: String):ArrayList<product>{
+        val lstProduct = ArrayList<product>()
+        val searchQuery = "SELECT * FROM $TABLE_NAME WHERE categoria LIKE '%$cadena%' OR marca LIKE '%$cadena%' OR detalles LIKE '%$cadena%'"
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(searchQuery, null)
+        if (cursor.moveToFirst()){
+            do {
+                val product = product()
+                product.id = cursor.getLong(cursor.getColumnIndex(COL_ID))
+                product.categoria = cursor.getString(cursor.getColumnIndex(COL_CATEGORIA))
+                product.marca = cursor.getString(cursor.getColumnIndex(COL_MARCA))
+                product.detalles = cursor.getString(cursor.getColumnIndex(COL_DETALLES))
+                product.costo = cursor.getFloat(cursor.getColumnIndex(COL_COSTO))
+                product.precio = cursor.getFloat(cursor.getColumnIndex(COL_PRECIO))
+                product.medidaPeso = cursor.getInt(cursor.getColumnIndex(COL_MEDIDAPESO))
+                product.cantidad = cursor.getFloat(cursor.getColumnIndex(COL_CANTIDAD))
+
+                lstProduct.add(product)
+            }while (cursor.moveToNext())
+        }
+        db.close()
+        return lstProduct
     }
 
 }

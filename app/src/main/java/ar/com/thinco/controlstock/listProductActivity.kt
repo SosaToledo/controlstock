@@ -20,12 +20,15 @@ class listProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_product)
-
+        var product = product()
         db = DBhelper(this)
 
-        @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS") val code = intent.extras["resultCode"]
+        val code = intent.extras["resultCode"]
         et_id.setText(code!!.toString())
-        val product = db.searchProduct(code.toString().toLong())
+
+        if (code != "0000000"){
+            product = db.searchProduct(code.toString().toLong())
+        }
 
         et_categoria.setText(product.categoria)
         et_marca.setText(product.marca)
@@ -48,26 +51,23 @@ class listProductActivity : AppCompatActivity() {
             et_cantidad.text.toString().toFloat()
         )
 
-        try {
-            db.addProduct(product)
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Esta modificando los valores")
-            builder.setMessage("¿Seguro desea modificarlos?")
-            //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
-            builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-                db.addProduct(product)
-                Toast.makeText(applicationContext,
-                    "ha modificado exitosamente los valores", Toast.LENGTH_SHORT).show()
-            }
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Esta modificando los valores")
+        builder.setMessage("¿Seguro desea modificarlos?")
+        //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
-            builder.setNegativeButton(android.R.string.no) { dialog, which ->
-                Toast.makeText(applicationContext, "Puede seguir modificando", Toast.LENGTH_SHORT).show()
-            }
-            builder.show()
-        }catch (e: SQLException){
-            Toast.makeText(applicationContext, "Ha ocurrido un problema al modificar los datos", Toast.LENGTH_SHORT).show()
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            db.updateProduct(product)
+            Toast.makeText(applicationContext,
+                "ha modificado exitosamente los valores", Toast.LENGTH_SHORT).show()
         }
+
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+            Toast.makeText(applicationContext, "Puede seguir modificando", Toast.LENGTH_SHORT).show()
+        }
+        builder.show()
+
     }
 
     fun cancel(view: View) {

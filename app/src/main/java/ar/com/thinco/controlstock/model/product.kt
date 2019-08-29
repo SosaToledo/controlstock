@@ -31,5 +31,12 @@ class product {
         this.cantidad = cantidad
     }
 
+    constructor(categoria: String, marca: String, detalles: String, precio: Float) {
+        this.categoria = categoria
+        this.marca = marca
+        this.detalles = detalles
+        this.precio = precio
+    }
+
 
 }
