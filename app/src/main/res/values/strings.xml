@@ -6,4 +6,21 @@
     <string name="cargar_producto">cargar producto</string>
     <string name="botondeuso">botondeuso</string>
     <string name="identificador">identificador</string>
+    <string name="boton_de_productos">Boton de productos</string>
+    <string name="productos">Productos</string>
+    <string name="boton_de_ventas">Boton de ventas</string>
+    <string name="ventas">Ventas</string>
+    <string name="buscar">Buscar</string>
+    <string name="agregar">Agregar</string>
+    <string name="buscar_por_marca_nombre_o_categoria">Buscar por marca, nombre o categoria</string>
+    <string name="thinco">/Thinco</string>
+    <string name="nuevo_producto">Nuevo producto</string>
+    <string name="precio">Precio</string>
+    <string name="medida">Medida</string>
+    <string name="costo">Costo</string>
+    <string name="detalles">Detalles</string>
+    <string name="marca">Marca</string>
+    <string name="categor_a">Categoría</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar</string>
 </resources>

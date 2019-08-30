@@ -5,25 +5,77 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/backgroundGradient"
+    android:background="@drawable/gradient_2"
     tools:context=".MainActivity">
-    <Button
-            android:text="Productos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+
+    <ImageButton
+            android:id="@+id/imgBtnProductos"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_button"
+            android:contentDescription="@string/boton_de_productos"
             android:onClick="toProduct"
-            android:id="@+id/btnProductos" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
-    <Button
-            android:text="Venta"
+            android:scaleType="centerCrop"
+            android:text="@string/productos"
+            android:tint="@drawable/touch_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            app:srcCompat="@drawable/productos512" />
+
+    <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnVenta"
-            tools:ignore="MissingConstraints"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.05" app:layout_constraintTop_toBottomOf="@+id/btnProductos"/>
+            android:text="@string/productos"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/divider"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnProductos"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnProductos"
+            app:layout_constraintTop_toBottomOf="@+id/imgBtnProductos" />
+
+    <ImageButton
+            android:id="@+id/imgBtnVenta"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_button"
+            android:contentDescription="@string/boton_de_ventas"
+            android:scaleType="centerCrop"
+            android:tint="@drawable/touch_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75"
+            app:srcCompat="@drawable/ventas512" />
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/divider"
+            android:textSize="20sp"
+            android:text="@string/ventas"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnVenta"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnVenta"
+            app:layout_constraintTop_toBottomOf="@+id/imgBtnVenta" />
+
 </android.support.constraint.ConstraintLayout>

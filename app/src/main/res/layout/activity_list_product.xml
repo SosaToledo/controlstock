@@ -1,106 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/gradient_2"
+        android:padding="20dp"
         tools:context=".listProductActivity">
 
-
-
-
-    <ImageButton
+    <Button
             android:id="@+id/imageButton2"
-            android:layout_width="222dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/botondeuso"
             android:onClick="cancel"
-            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:drawableStart="@drawable/quit_drawable"
+            android:drawableTint="@color/accent"
+            android:text="@string/cancelar"
+            android:fontFamily="@font/poppins"
+            android:textSize="19sp"
+            android:drawablePadding="10dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored" />
 
-    <ImageButton
+    <Button
             android:id="@+id/imageButton"
-            android:layout_width="185dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/botondeuso"
             android:onClick="saveProduct"
-            app:srcCompat="@android:drawable/ic_menu_save" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_save"
+            android:drawableStart="@drawable/save_drawable"
+            android:drawableTint="@color/icons"
+            android:text="@string/guardar"
+            android:fontFamily="@font/poppins"
+            android:textSize="19sp"
+            android:drawablePadding="10dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            />
 
-    <EditText
-            android:id="@+id/et_id"
-            android:layout_width="407dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="0dp"
-            android:ems="10"
-            android:hint="@string/identificador"
-            android:inputType="textPersonName" />
-
-    <EditText
-            android:id="@+id/et_categoria"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_id"
-            android:layout_alignParentStart="true"
-            android:ems="10"
-            android:hint="Categoría"
-            android:inputType="textPersonName" />
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:layout_editor_absoluteX="20dp">
 
-    <EditText
-            android:id="@+id/et_marca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_categoria"
-            android:ems="10"
-            android:hint="Marca"
-            android:inputType="textPersonName" />
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <EditText
-            android:id="@+id/et_detalles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_marca"
-            android:ems="10"
-            android:hint="Detalles"
-            android:inputType="textPersonName" />
 
-    <EditText
-            android:id="@+id/et_costo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_detalles"
-            android:ems="10"
-            android:hint="Costo"
-            android:inputType="textPersonName" />
+            <EditText
+                    android:id="@+id/et_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/identificador"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-            android:id="@+id/et_precio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_costo"
-            android:ems="10"
-            android:hint="Precio"
-            android:inputType="textPersonName" />
+            <EditText
+                    android:id="@+id/et_categoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/categor_a"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
-    <EditText
-            android:id="@+id/et_medida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_precio"
-            android:ems="10"
-            android:hint="Medida"
-            android:inputType="textPersonName" />
+            <EditText
+                    android:id="@+id/et_marca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/marca"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_categoria" />
 
-    <EditText
-            android:id="@+id/et_cantidad"
-            android:layout_width="match_parent"
+            <EditText
+                    android:id="@+id/et_detalles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/detalles"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.575"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_medida" />
+
+            <EditText
+                    android:id="@+id/et_costo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/costo"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_marca"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            <EditText
+                    android:id="@+id/et_precio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/precio"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_marca"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            <EditText
+                    android:id="@+id/et_medida"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/medida"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_costo"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            <EditText
+                    android:id="@+id/et_cantidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Cantidad"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/icons"
+                    android:textColorHint="@color/icons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_precio"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent=".4" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+    <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/nuevo_producto" />
+
+    <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_medida"
-            android:ems="10"
-            android:hint="Cantidad"
-            android:inputType="textPersonName" />
-</RelativeLayout>
+            android:layout_marginTop="16dp"
+            android:text="@string/nuevo_producto"
+            android:textColor="@color/icons"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+</android.support.constraint.ConstraintLayout>
