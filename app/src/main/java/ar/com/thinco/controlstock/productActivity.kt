@@ -45,18 +45,22 @@ class productActivity : AppCompatActivity() {
 
         et_search.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-
+                Log.d("afterTextChanged", "ESTOY EN AFTER")
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+                Log.d("beforeTextChanged", "ESTOY EN BEFORE, $count")
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (count==0) Log.d("ERROR", "evitar error")
-                if (count>=3){
-                    val products = db.searchProduct(s.toString())
-                    rv_searchproduct.adapter = productAdapter(context, products)
+                Log.d("onTextChanged", "ESTOY EN ONCHANGE $count")
+                if (count==0) {
+                    Log.d("ERROR", "evitar error")
+                }else{
+                    if (count>=3){
+                        val products = db.searchProduct(s.toString())
+                        rv_searchproduct.adapter = productAdapter(context, products)
+                    }
                 }
             }
 

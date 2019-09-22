@@ -38,8 +38,8 @@ class listProductActivity : AppCompatActivity() {
                 et_categoria.setText(product.categoria)
                 et_marca.setText(product.marca)
                 et_detalles.setText(product.detalles)
-                et_costo.setText(product.costo.toString())
                 et_precio.setText(product.precio.toString())
+                et_costo.setText(product.costo.toString())
                 et_cantidad.setText(product.cantidad.toString())
 
                 //modificar boton

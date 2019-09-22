@@ -80,13 +80,12 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
                 "SET $COL_CATEGORIA = '${product.categoria}', " +
                 "$COL_MARCA = '${product.marca}', " +
                 "$COL_DETALLES = '${product.detalles}', " +
-                "$COL_COSTO = ${product.costo}, " +
                 "$COL_PRECIO = ${product.precio}, " +
+                "$COL_COSTO = ${product.costo}, " +
                 "$COL_MEDIDAPESO = ${product.medidaPeso}, " +
                 "$COL_CANTIDAD = ${product.cantidad} " +
                 "WHERE $COL_ID = ${product.id};"
-
-        db.rawQuery(updatetable, null)
+        db.execSQL(updatetable)
         db.close()
     }
 
