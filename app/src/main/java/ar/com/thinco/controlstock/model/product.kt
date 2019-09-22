@@ -1,13 +1,30 @@
 package ar.com.thinco.controlstock.model
 
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
+
 class product {
+    @Expose
+    @SerializedName("id")
     var id:Long=0
+    @Expose
+    @SerializedName("categoria")
     var categoria:String=""
+    @Expose
+    @SerializedName("marca")
     var marca:String=""
+    @Expose
+    @SerializedName("detalles")
     var detalles:String=""
+    @Expose
+    @SerializedName("precio")
     var precio:Float= 0F
+    @Expose
+    @SerializedName("costo")
     var costo:Float= 0F
     var medidaPeso:Int=0
+    @Expose
+    @SerializedName("cantidad")
     var cantidad:Float= 0F
 
     constructor(){}
@@ -37,6 +54,4 @@ class product {
         this.detalles = detalles
         this.precio = precio
     }
-
-
 }

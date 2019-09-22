@@ -26,9 +26,15 @@ class productActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
 
         db = DBhelper(this)
-
-        layoutManager = LinearLayoutManager(this)
         val context = this
+
+        val products = db.searchProduct("prueba")
+
+        rv_searchproduct.apply {
+            setHasFixedSize(true)
+            layoutManager  = LinearLayoutManager(context)
+            adapter = productAdapter(context, products)
+        }
 
         intent.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES)
 
@@ -49,9 +55,8 @@ class productActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (count==0) Log.d("ERROR", "evitar error")
                 if (count>=3){
-                    val product = db.searchProduct(s.toString())
-                    rv_searchproduct.layoutManager = layoutManager
-                    rv_searchproduct.adapter = productAdapter(context, product)
+                    val products = db.searchProduct(s.toString())
+                    rv_searchproduct.adapter = productAdapter(context, products)
                 }
             }
 
@@ -70,7 +75,6 @@ class productActivity : AppCompatActivity() {
                 Log.d("ERROR", "algo malo paso")
             }else{
                 val intent = Intent(this, listProductActivity::class.java)
-                Log.d("RESULT", result.contents.toString())
                 intent.putExtra("resultCode", result.contents.toString())
                 startActivity(intent)
             }
@@ -81,7 +85,7 @@ class productActivity : AppCompatActivity() {
 
     fun addProductWithoutCode(view: View){
         val intent = Intent(this, listProductActivity::class.java)
-        intent.putExtra("resultCode", "0000000")
+        intent.putExtra("resultCode", "000000")
         startActivity(intent)
     }
 

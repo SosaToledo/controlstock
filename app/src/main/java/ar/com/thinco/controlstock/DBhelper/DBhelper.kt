@@ -97,7 +97,7 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
         db.close()
     }
 
-    fun searchProduct(id: Long):product{
+    fun searchProduct(id: Long):product?{
         val producto = product()
         val searchQuery = "SELECT * FROM $TABLE_NAME WHERE id = $id"
         val db = this.writableDatabase
@@ -110,9 +110,11 @@ class DBhelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAME, null,DA
             producto.precio = cursor.getFloat(cursor.getColumnIndex(COL_PRECIO))
             producto.medidaPeso = cursor.getInt(cursor.getColumnIndex(COL_MEDIDAPESO))
             producto.cantidad = cursor.getFloat(cursor.getColumnIndex(COL_CANTIDAD))
+
+            return producto
         }
 
-        return producto
+        return  null
     }
 
     fun searchProduct(cadena: String):ArrayList<product>{

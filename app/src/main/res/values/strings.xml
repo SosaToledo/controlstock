@@ -17,10 +17,13 @@
     <string name="nuevo_producto">Nuevo producto</string>
     <string name="precio">Precio</string>
     <string name="medida">Medida</string>
+    <string name="porPeso">Por Peso </string>
     <string name="costo">Costo</string>
     <string name="detalles">Detalles</string>
     <string name="marca">Marca</string>
     <string name="categor_a">Categoría</string>
     <string name="cancelar">Cancelar</string>
     <string name="guardar">Guardar</string>
+    <string name="detalles_producto">Detalles del Producto</string>
+    <string name="porUnidad">Por Unidad</string>
 </resources>
